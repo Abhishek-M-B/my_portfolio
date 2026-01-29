@@ -125,14 +125,13 @@ USE_TZ = True
 STATIC_URL = '/static/'
 MEDIA_URL = '/images/'
 
-# This ensures Django looks in the correct 'static' folder
+# This tells Django where to find your CSS/JS files
 STATICFILES_DIRS = [
-    BASE_DIR / 'static',
+    os.path.join(BASE_DIR, 'static'),
 ]
 
-# This is where WhiteNoise will grab files for production
-STATIC_ROOT = BASE_DIR / "staticfiles"
-
+# This is where WhiteNoise will serve files from in production
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 # Optimized WhiteNoise storage
 STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
