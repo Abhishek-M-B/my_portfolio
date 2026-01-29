@@ -122,19 +122,23 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
-STATIC_URL = '/static/'
-MEDIA_URL = '/images/'
-
-# This tells Django where to find your CSS/JS files
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'static'),
-]
-
-# This is where WhiteNoise will serve files from in production
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-
-# Optimized WhiteNoise storage
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
+# Media files
+MEDIA_ROOT = BASE_DIR / 'static/images'
 
 # Fix for nested WSGI path
 WSGI_APPLICATION = 'portfolio.portfolio.wsgi.application'
+
+
+# Static files (CSS, JavaScript, Images)
+STATIC_URL = '/static/'
+
+# This matches your 'dir' output where 'static' is next to 'manage.py'
+STATICFILES_DIRS = [
+    BASE_DIR / 'static',
+]
+
+# This is where Railway will collect files
+STATIC_ROOT = BASE_DIR / 'staticfiles'
+
+# Use WhiteNoise to serve them
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
