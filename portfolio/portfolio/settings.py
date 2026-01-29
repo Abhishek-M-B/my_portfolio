@@ -132,8 +132,9 @@ STATICFILES_DIRS = [
 
 # This is where WhiteNoise will serve files from in production
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
 # Optimized WhiteNoise storage
-STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
 
 # Fix for nested WSGI path
 WSGI_APPLICATION = 'portfolio.portfolio.wsgi.application'
