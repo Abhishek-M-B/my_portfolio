@@ -1,0 +1,183 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Abhishek M B | Portfolio</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="icon" href="{% static 'images/favicon.jpeg' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<nav id="navbar">
+    <div class="nav-container flex s-between items-center ml=5px mr=5px">
+    <h2>Portfolio</h2>
+        <ul class="flex">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+        </ul>
+    </div>
+</nav>
+
+<!-- HOME -->
+<section id="home" class="flex s-around items-center w-80 m-auto">
+    <div class="home-left">
+        <h4>Hi, I’m</h4>
+        <h1>Abhishek M B</h1>
+        <h4>Data Analyst & Backend Developer</h4>
+
+        <a href="{% static 'pdf/Abhishek_M_B_DSA_resume.pdf' %}" target="_blank">
+    <button class="btn poppins">Download Resume</button></a>
+        <a href="#contact" class="btn live">Let’s Talk</a>
+    </div>
+
+    <div class="home-right">
+        <img src="{% static 'images/profile_photo.png' %}" alt="Abhishek M B">
+    </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about" class="w-80 m-auto">
+    <h1 class="t-center my-2">About Me</h1>
+
+    <div class="flex s-around items-center">
+        <div class="about-left">
+            <img src="{% static 'images/dog.png' %}" alt="About image">
+        </div>
+
+        <div class="about-right">
+            <p>
+                I am an entry-level <strong>Data Analyst</strong> with hands-on experience in data cleaning,
+                exploratory data analysis, and statistical analysis using Python.
+            </p>
+            <p>
+                I also work with <strong>Django and FastAPI</strong> to build scalable backend systems and REST APIs.
+            </p>
+            <p>
+                B.Tech in Electronics & Communication Engineering (CGPA: 7.9)
+            </p>
+        </div>
+    </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills" class="w-80 m-auto">
+    <h1 class="t-center my-2">Skills</h1>
+
+    <div class="flex s-around">
+        <div class="skills-item">
+            <h2>Data Analysis</h2>
+            <p>Pandas, NumPy, EDA, Statistical Analysis</p>
+        </div>
+
+        <div class="skills-item">
+            <h2>Visualization</h2>
+            <p>Matplotlib, Power BI, Tableau</p>
+        </div>
+
+        <div class="skills-item">
+            <h2>Backend</h2>
+            <p>Django, FastAPI, REST APIs</p>
+        </div>
+    </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects" class="w-80 m-auto">
+    <h1 class="t-center my-2">Projects</h1>
+
+    <div class="projects-container flex">
+        <div class="projects-item">
+            <h1>Solar Panel Cleaning System</h1>
+            <p>ML-based object recognition system with 90% accuracy using Python.</p>
+        </div>
+
+        <div class="projects-item">
+            <h1>Parking Assist System</h1>
+            <p>Bluetooth-enabled system reducing detection latency by 40%.</p>
+        </div>
+
+        <div class="projects-item">
+            <h1>1x3 Router (VLSI)</h1>
+            <p>Designed and implemented using Verilog.</p>
+        </div>
+    </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="w-80 m-auto">
+    <h1 class="t-center my-2">Contact</h1>
+
+    {% if messages %}
+    <div class="messages-container" style="width: 100%; margin-bottom: 20px;">
+        {% for message in messages %}
+            <div class="alert {{ message.tags }}" id="msg-alert">
+                <i class="fa-solid {% if message.tags == 'success' %}fa-circle-check{% else %}fa-circle-exclamation{% endif %}"></i>
+                {{ message }}
+            </div>
+        {% endfor %}
+    </div>
+
+    <script>
+        setTimeout(function() {
+            var msg = document.getElementById('msg-alert');
+            if (msg) {
+                msg.style.display = 'none';
+            }
+        }, 5000);
+    </script>
+{% endif %}
+
+    <form method="post" class="form">
+        {% csrf_token %}
+        <input type="text" name="name" placeholder="Your Name" required>
+        <input type="email" name="email" placeholder="Your Email" required>
+        <input type="tel" name="phone" placeholder="Phone Number">
+        <textarea name="message" rows="5" placeholder="Your Message"></textarea>
+        <button type="submit" class="btn live">Send Message</button>
+    </form>
+</section>
+
+<!-- FOOTER -->
+<footer id="footer">
+    <div class="footer-container">
+        <ul class="flex s-center">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+
+        <ul class="flex s-center font-awesome">
+            <li><i class="fa-brands fa-linkedin-in"></i></li>
+            <li><i class="fa-brands fa-github"></i></li>
+            <li><i class="fa-brands fa-instagram"></i></li>
+        </ul>
+
+        <p class="t-center">&copy; {% now "Y" %} Abhishek M B</p>
+    </div>
+</footer>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+{% if messages %}
+    <script>
+        {% for message in messages %}
+            Swal.fire({
+                title: "{% if message.tags == 'success' %}Thank You!{% else %}Error!{% endif %}",
+                text: "{{ message }}",
+                icon: "{{ message.tags }}", // 'success' or 'error'
+                confirmButtonColor: "{% if message.tags == 'success' %}#38bdf8{% else %}#ef4444{% endif %}",
+                background: '#1e293b',
+                color: '#fff'
+            });
+        {% endfor %}
+    </script>
+    {% endif %}
+</body>
+</html>
