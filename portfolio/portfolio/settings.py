@@ -54,7 +54,7 @@ MIDDLEWARE = [
 ]
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
-ROOT_URLCONF = 'portfolio.urls'
+ROOT_URLCONF = 'portfolio.portfolio.urls'
 
 TEMPLATES = [
     {
