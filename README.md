@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Personal Portfolio
 
 A Simple Portfolio app build with Django.
@@ -56,3 +57,6 @@ $ python manage.py runserver
 ```
 
 <b>The project will be available at :   </b>  **http://localhost:8000**
+=======
+# my_portfolio
+>>>>>>> b5c54bbb2dfe8baa39fce8c93e94e272057813ad
