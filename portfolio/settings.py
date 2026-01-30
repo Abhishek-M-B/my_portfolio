@@ -26,7 +26,18 @@ SECRET_KEY = 'nv)=_h7=(#+dn7hk2#n17v406lzs#2-)l8kepd#y(u2g)g5_%-'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['myportfolio-production-b03c.up.railway.app', 'localhost', '127.0.0.1', '.up.railway.app']
+ALLOWED_HOSTS = [
+    'myportfolio-production-b03c.up.railway.app',
+    'localhost',
+    '127.0.0.1',
+]
+
+CSRF_TRUSTED_ORIGINS = [
+    'https://myportfolio-production-b03c.up.railway.app',
+]
+
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+
 
 
 # Application definition
