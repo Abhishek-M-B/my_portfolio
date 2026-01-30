@@ -54,7 +54,7 @@ MIDDLEWARE = [
 ]
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
-ROOT_URLCONF = 'portfolio.portfolio.urls'
+ROOT_URLCONF = 'portfolio.urls'
 
 TEMPLATES = [
     {
@@ -126,7 +126,7 @@ USE_TZ = True
 MEDIA_ROOT = BASE_DIR / 'static/images'
 
 # Fix for nested WSGI path
-WSGI_APPLICATION = 'portfolio.portfolio.wsgi.application'
+WSGI_APPLICATION = 'portfolio.wsgi.application'
 
 
 # Static files (CSS, JavaScript, Images)
