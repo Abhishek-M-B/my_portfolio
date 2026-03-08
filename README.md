@@ -1,4 +1,4 @@
-# 🧑‍💻 Abhishek's Personal Portfolio
+# 🧑‍💻 My Personal Portfolio
 
 A personal portfolio website built with **Django** — showcasing my projects, skills, and experience.
 
