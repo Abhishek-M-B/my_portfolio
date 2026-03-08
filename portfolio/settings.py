@@ -27,7 +27,8 @@ SECRET_KEY = 'nv)=_h7=(#+dn7hk2#n17v406lzs#2-)l8kepd#y(u2g)g5_%-'
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    'myportfolio-production-b03c.up.railway.app',
+    'my-portfolio-1-rt48.onrender.com',
+    'my-portfolio-3bnm.onrender.com',
     'localhost',
     '127.0.0.1',
 ]
