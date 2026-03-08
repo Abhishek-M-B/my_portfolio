@@ -10,38 +10,28 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 import os
-
 from pathlib import Path
 
-# Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
-
-# SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'nv)=_h7=(#+dn7hk2#n17v406lzs#2-)l8kepd#y(u2g)g5_%-'
-SECRET_KEY = os.environ.get('SECRET_KEY', 'nv)=_h7=(#+dn7hk2#n17v406lzs#2-)l8kepd#y(u2g)g5_%-')
 
-# SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
+
+ALLOWED_HOSTS = [
+    'my-portfolio007.onrender.com',
+    'localhost',
+    '127.0.0.1',
+]
 
 RENDER_HOSTNAME = os.environ.get('RENDER_EXTERNAL_HOSTNAME')
 if RENDER_HOSTNAME:
     ALLOWED_HOSTS.append(RENDER_HOSTNAME)
 
-ALLOWED_HOSTS = [
-    'my-portfolio007.onrender.com',
-    'my-portfolio-3bnm.onrender.com',
-    'my-portfolio-1-rt48.onrender.com',
-    'localhost',
-    '127.0.0.1',
-]
-
 CSRF_TRUSTED_ORIGINS = [
     'https://my-portfolio007.onrender.com',
 ]
+
 
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
