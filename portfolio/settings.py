@@ -27,7 +27,17 @@ SECRET_KEY = os.environ.get('SECRET_KEY', 'nv)=_h7=(#+dn7hk2#n17v406lzs#2-)l8kep
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*.onrender.com', 'localhost', '127.0.0.1']
+RENDER_HOSTNAME = os.environ.get('RENDER_EXTERNAL_HOSTNAME')
+if RENDER_HOSTNAME:
+    ALLOWED_HOSTS.append(RENDER_HOSTNAME)
+
+ALLOWED_HOSTS = [
+    'my-portfolio007.onrender.com',
+    'my-portfolio-3bnm.onrender.com',
+    'my-portfolio-1-rt48.onrender.com',
+    'localhost',
+    '127.0.0.1',
+]
 
 CSRF_TRUSTED_ORIGINS = [
     'https://my-portfolio007.onrender.com',
